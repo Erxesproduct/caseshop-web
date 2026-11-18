@@ -83,3 +83,24 @@ Zochil has no eBarimt setting for this shop.
 
 Website (done): checkout asks «Хувь хүн» or «Байгууллага»; a company needs a 7-digit registry number, validated on the
 server; the order message carries it.
+
+## 1.4 Delivery zones, fees and order statuses
+
+**Website (done)**, from Zochil shop 5855:
+
+| Option | Fee | Rule |
+| --- | --- | --- |
+| Улаанбаатар хот дотор | 5,000₮, free from 30,000₮ | Only for orders from 20,000₮. Before 12:00 same day, after 12:00 next day |
+| Орон нутаг | told by phone | Put on a local bus; from 20,000₮ |
+| Дэлгүүрээс очиж авах | 0₮ | Sunday Plaza, 1042. From the 10,000₮ minimum |
+
+- Minimum order 10,000₮ (Zochil `order_min_limit`). The fee is in the online total for the city; countryside returns
+  `deliveryFee: null` and the order message says the bus fee is told by phone.
+
+**erxes (manual):**
+
+1. Import `docs/erxes/caseshop-delivery.csv`: services `DELIVERY-CITY` (5,000₮; staff set 0₮ from 30,000₮),
+   `DELIVERY-COUNTRYSIDE` (no price), `PICKUP-STORE` (0₮).
+2. **Sales → Boards → «Онлайн захиалга» → pipeline «Вэбсайт»**, stages: Шинэ захиалга → Загвар, үлдэгдэл шалгасан →
+   Төлбөр хүлээгдэж буй → Төлбөр баталгаажсан → Хүргэлтэд гарсан / Авахад бэлэн → Хүргэгдсэн, plus «Цуцлагдсан».
+3. **Frontline → Forms → (order form) → Settings**: create a sales card in «Шинэ захиалга» for every submission.
