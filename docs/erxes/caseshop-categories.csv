@@ -1,0 +1,115 @@
+code,name,parentCode,productCount
+CS,CASESHOP MONGOLIA,,709
+CS-iphone,iPhone,CS,193
+CS-samsung,Samsung,CS,127
+CS-xiaomi,Xiaomi,CS,110
+CS-huawei,Huawei,CS,83
+CS-honor,Honor,CS,53
+CS-oppo,Oppo,CS,57
+CS-vivo,Vivo,CS,65
+CS-realme,Realme,CS,3
+CS-lg,LG,CS,11
+CS-sony,Sony,CS,1
+CS-tecno,Tecno,CS,1
+CS-infinix,Infinix,CS,1
+CS-tablet,Таблет,CS,1
+CS-airpods,AirPods,CS,2
+CS-other,Бусад,CS,1
+CS-M-338480,AirPods · WB Series Airpods,CS-airpods,2
+CS-M-334891,Honor · Honor 5 Series,CS-honor,3
+CS-M-334890,Honor · Honor 4 Series,CS-honor,1
+CS-M-334895,Honor · Honor 9 Series,CS-honor,2
+CS-M-334894,Honor · Honor 8 Series,CS-honor,2
+CS-M-334892,Honor · Honor 6 Series,CS-honor,3
+CS-M-332750,Honor · Honor Play,CS-honor,5
+CS-M-334458,Honor · Honor X Series,CS-honor,9
+CS-M-334893,Honor · Honor 7 Series,CS-honor,3
+CS-M-334887,Honor · Honor 80 Series,CS-honor,3
+CS-M-334886,Honor · Honor 70 Series,CS-honor,2
+CS-M-334885,Honor · Honor 60 Series,CS-honor,3
+CS-M-334884,Honor · Honor 50 Series,CS-honor,2
+CS-M-332733,Honor · Honor 30 Series,CS-honor,3
+CS-M-334883,Honor · Honor 20 Series,CS-honor,2
+CS-M-334870,Honor · Honor V Series,CS-honor,3
+CS-M-332728,Honor · Magic4/Magic4 Pro,CS-honor,2
+CS-M-332732,Honor · Magic 3 Series,CS-honor,2
+CS-M-332740,Honor · Honor 10,CS-honor,1
+CS-M-332724,Honor · Magic5 Pro,CS-honor,1
+CS-M-333034,Honor · Magic5,CS-honor,1
+CS-M-333087,Huawei · P20/P20 Pro,CS-huawei,5
+CS-M-336554,Huawei · MatePad SE11,CS-huawei,1
+CS-M-333480,Huawei · Y Series,CS-huawei,15
+CS-M-333097,Huawei · Mate 9,CS-huawei,2
+CS-M-332230,Huawei · Nova Series,CS-huawei,24
+CS-M-333091,Huawei · Mate 50 Series,CS-huawei,2
+CS-M-333093,Huawei · Mate 40 Series,CS-huawei,3
+CS-M-333084,Huawei · P50 Series,CS-huawei,1
+CS-M-333483,Huawei · Enjoy Series,CS-huawei,13
+CS-M-333095,Huawei · Mate 20 Series,CS-huawei,5
+CS-M-333096,Huawei · Mate 10/10 Pro,CS-huawei,1
+CS-M-333094,Huawei · Mate 30 Series,CS-huawei,2
+CS-M-334196,Huawei · Nexus 6P,CS-huawei,1
+CS-M-334107,Huawei · PSmart Series,CS-huawei,2
+CS-M-333083,Huawei · P60 Series,CS-huawei,1
+CS-M-333085,Huawei · P40 Series,CS-huawei,4
+CS-M-333086,Huawei · P30/P30 Pro,CS-huawei,2
+CS-M-333088,Huawei · P10,CS-huawei,1
+CS-M-333947,Huawei · P8/P8 Lite,CS-huawei,1
+CS-M-332313,Huawei · Maimang,CS-huawei,1
+CS-M-334910,Infinix · Infinix Smart Series,CS-infinix,1
+CS-M-352979,iPhone · iPhone 18 Pro,CS-iphone,66
+CS-M-352978,iPhone · iPhone 18 ProMax,CS-iphone,55
+CS-M-342050,iPhone · iPhone 17 Pro,CS-iphone,76
+CS-M-335074,iPhone · iPhone 17 ProMax,CS-iphone,75
+CS-M-352980,iPhone · iPhone Duo,CS-iphone,6
+CS-M-342060,iPhone · iPhone 17 Air,CS-iphone,3
+CS-M-342059,iPhone · iPhone 17,CS-iphone,4
+CS-M-335073,iPhone · iPhone 16 Series,CS-iphone,1
+CS-M-335072,iPhone · iPhone 15 Series,CS-iphone,10
+CS-M-335071,iPhone · iPhone 14 Series,CS-iphone,25
+CS-M-335070,iPhone · iPhone 13 Series,CS-iphone,25
+CS-M-335069,iPhone · iPhone 12 Series,CS-iphone,24
+CS-M-335068,iPhone · iPhone 11 Series,CS-iphone,22
+CS-M-335067,iPhone · iPhone X Series,CS-iphone,28
+CS-M-335066,iPhone · iPhone 7/8 Series,CS-iphone,8
+CS-M-335065,iPhone · iPhone 6 Series,CS-iphone,5
+CS-M-336635,iPhone · iPad Series,CS-iphone,10
+CS-M-333067,LG · LG K Series,CS-lg,5
+CS-M-334871,LG · LG V Series,CS-lg,1
+CS-M-332251,LG · LG G Series,CS-lg,4
+CS-M-333478,LG · LG X Screen,CS-lg,1
+CS-M-333381,Oppo · A Series,CS-oppo,27
+CS-M-333387,Oppo · R Series,CS-oppo,12
+CS-M-333382,Oppo · F Series,CS-oppo,6
+CS-M-333405,Oppo · Reno Series,CS-oppo,9
+CS-M-333383,Oppo · Find Series,CS-oppo,1
+CS-M-333384,Oppo · K Series,CS-oppo,2
+CS-M-334872,Realme · Realme 9 Series,CS-realme,1
+CS-M-334751,Realme · Realme X Series,CS-realme,1
+CS-M-333479,Realme · Realme V15,CS-realme,1
+CS-M-338353,Samsung · Galaxy Note Series,CS-samsung,5
+CS-M-334448,Samsung · Galaxy A Series,CS-samsung,47
+CS-M-334897,Samsung · Galaxy S Series,CS-samsung,26
+CS-M-336545,Samsung · Z Fold Series,CS-samsung,10
+CS-M-333410,Samsung · Galaxy J Series,CS-samsung,11
+CS-M-336615,Samsung · Galaxy Tab,CS-samsung,10
+CS-M-334451,Samsung · Galaxy M Series,CS-samsung,2
+CS-M-334454,Samsung · Grand Prime,CS-samsung,1
+CS-M-334452,Samsung · Galaxy Mega 2,CS-samsung,1
+CS-M-334449,Samsung · Galaxy C Series,CS-samsung,1
+CS-M-335075,Samsung · Z Flip Series,CS-samsung,18
+CS-M-221560,Таблет · Tab A9,CS-tablet,1
+CS-M-334912,Tecno · Spark Series,CS-tecno,1
+CS-M-333361,Vivo · V Series,CS-vivo,11
+CS-M-334189,Vivo · Nex Series,CS-vivo,3
+CS-M-333362,Vivo · Y Series,CS-vivo,23
+CS-M-333360,Vivo · X Series,CS-vivo,28
+CS-M-338427,Xiaomi · Redmi Note Series,CS-xiaomi,58
+CS-M-338426,Xiaomi · Redmi Series,CS-xiaomi,13
+CS-M-336557,Xiaomi · Redmi Pad 5,CS-xiaomi,1
+CS-M-338424,Xiaomi · Xiaomi Series,CS-xiaomi,15
+CS-M-338430,Xiaomi · Mi Series,CS-xiaomi,27
+CS-M-338431,Xiaomi · Redmi K Series,CS-xiaomi,6
+CS-M-338425,Xiaomi · Redmi S Series,CS-xiaomi,1
+CS-M-338428,Xiaomi · Redmi Go,CS-xiaomi,1
+CS-M-338429,Xiaomi · Mix Series,CS-xiaomi,1

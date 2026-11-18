@@ -1,0 +1,338 @@
+@import "tailwindcss";
+
+/*
+ * «Pocket Pop»: a phone-case wall turned into a candy-glass app. Cloudy lavender background with soft colour blobs,
+ * frosted-glass panels, the logo's navy for type, bubblegum pink / lime / sky / lilac as sticker colours. Products sit
+ * in phone-shaped frames (rounded corners, a camera island), and the shop asks «which phone do you have?» first.
+ */
+@theme {
+  --color-cloud: #f3f4fb;
+  --color-cloud-2: #e8eaf7;
+  --color-ink: #162a4a;
+  --color-ink-2: #46557a;
+  --color-mute: #8a93ad;
+  --color-line: #dde1f0;
+  --color-bubble: #ff4f9a;
+  --color-bubble-2: #e0337f;
+  --color-lime: #c6f23a;
+  --color-sky: #4cb2ff;
+  --color-lilac: #b39bff;
+  --color-sun: #ffd23f;
+
+  --font-display: var(--nf-display), "Exo 2", system-ui, sans-serif;
+  --font-sans: var(--nf-sans), "Mulish", system-ui, sans-serif;
+}
+
+:root {
+  --ink: #162a4a;
+  --bubble: #ff4f9a;
+  --lime: #c6f23a;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    background:
+      radial-gradient(60rem 40rem at 105% -10%, rgb(179 155 255 / 0.28), transparent 60%),
+      radial-gradient(50rem 36rem at -15% 20%, rgb(76 178 255 / 0.18), transparent 60%),
+      var(--color-cloud);
+    background-attachment: fixed;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  ::selection {
+    background: var(--bubble);
+    color: #fff;
+  }
+  .grid > * {
+    min-width: 0;
+  }
+  :focus-visible {
+    outline: 2.5px solid var(--bubble);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .wrap {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 1280px;
+    padding-inline: 16px;
+  }
+  @media (min-width: 768px) {
+    .wrap {
+      padding-inline: 32px;
+    }
+  }
+  .display {
+    font-family: var(--font-display);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+  }
+  .kicker {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .glass {
+    background: rgb(255 255 255 / 0.72);
+    backdrop-filter: blur(14px) saturate(1.4);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    border: 1px solid rgb(255 255 255 / 0.9);
+    box-shadow: 0 10px 30px -12px rgb(22 42 74 / 0.18);
+  }
+  .card {
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 1px 0 rgb(22 42 74 / 0.04), 0 12px 32px -18px rgb(22 42 74 / 0.25);
+  }
+  /* a phone-shaped frame: rounded slab with a camera island */
+  .phone {
+    position: relative;
+    border-radius: 30px;
+    background: #fff;
+    box-shadow:
+      inset 0 0 0 1px rgb(22 42 74 / 0.06),
+      0 14px 30px -18px rgb(22 42 74 / 0.35);
+    overflow: hidden;
+  }
+  .phone::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 30%;
+    max-width: 58px;
+    aspect-ratio: 1;
+    border-radius: 16px;
+    background: rgb(22 42 74 / 0.82);
+    box-shadow:
+      inset 8px 8px 0 -4px rgb(255 255 255 / 0.18),
+      inset -6px -6px 0 -3px rgb(0 0 0 / 0.25);
+    opacity: 0;
+    transform: scale(0.6);
+    transition:
+      opacity 0.25s,
+      transform 0.25s;
+    pointer-events: none;
+  }
+  .group:hover .phone::after,
+  .phone.cam::after {
+    opacity: 1;
+    transform: none;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 50px;
+    padding: 0 1.5rem;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 16px;
+    white-space: nowrap;
+    transition:
+      background-color 0.2s,
+      color 0.2s,
+      transform 0.2s,
+      box-shadow 0.2s;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+  .btn:active {
+    transform: translateY(0) scale(0.98);
+  }
+  .btn-ink {
+    background: var(--ink);
+    color: #fff;
+    box-shadow: 0 10px 24px -12px rgb(22 42 74 / 0.7);
+  }
+  .btn-ink:hover {
+    background: #0d1c36;
+  }
+  .btn-bubble {
+    background: var(--bubble);
+    color: #fff;
+    box-shadow: 0 10px 24px -10px rgb(255 79 154 / 0.8);
+  }
+  .btn-bubble:hover {
+    background: var(--color-bubble-2);
+  }
+  .btn-lime {
+    background: var(--lime);
+    color: var(--ink);
+    box-shadow: 0 10px 24px -12px rgb(130 170 0 / 0.8);
+  }
+  .btn-glass {
+    background: rgb(255 255 255 / 0.8);
+    color: var(--ink);
+    border: 1px solid #fff;
+    box-shadow: 0 8px 22px -14px rgb(22 42 74 / 0.4);
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 40px;
+    padding: 0 1rem;
+    border-radius: 999px;
+    background: #fff;
+    border: 1.5px solid var(--color-line);
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition:
+      border-color 0.15s,
+      background-color 0.15s,
+      color 0.15s;
+  }
+  .chip:hover {
+    border-color: var(--ink);
+  }
+  .chip[aria-current="true"],
+  .chip[aria-pressed="true"],
+  .chip[aria-checked="true"] {
+    border-color: var(--ink);
+    background: var(--ink);
+    color: #fff;
+  }
+  .sticker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-radius: 999px;
+    padding: 0.2rem 0.65rem;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .blob {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(40px);
+    opacity: 0.55;
+    pointer-events: none;
+  }
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 40s linear infinite;
+  }
+  .marquee:hover {
+    animation-play-state: paused;
+  }
+  .scroller {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(170px, 230px);
+    gap: 16px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    padding: 4px 4px 16px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--ink) transparent;
+  }
+  .scroller > * {
+    scroll-snap-align: start;
+  }
+  .prose-case p,
+  .prose-case li {
+    margin-top: 0.55em;
+    color: var(--color-ink-2);
+    line-height: 1.75;
+  }
+  .prose-case li {
+    position: relative;
+    padding-left: 1.2em;
+  }
+  .prose-case li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 999px;
+    background: var(--bubble);
+  }
+  .reveal-armed {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  .reveal-armed.reveal-in {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.7s ease var(--d, 0ms),
+      transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) var(--d, 0ms);
+  }
+  .fade-in {
+    animation: fade 0.4s ease;
+  }
+  .pop-in {
+    animation: pop 0.45s cubic-bezier(0.2, 1.4, 0.4, 1);
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--r, 0deg));
+  }
+  50% {
+    transform: translateY(-12px) rotate(var(--r, 0deg));
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
