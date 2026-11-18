@@ -54,3 +54,20 @@ Steps:
 5. Upload the photos (`public/images/p/*.webp`) on the products. Every imported product has at least one photo.
 6. Run `npm run sync:erxes` once with a Client Portal token (`ERXES_APP_TOKEN`) to confirm the codes match (it also
    refreshes `src/data/lite.json`, which the cart reads).
+
+## 1.2 Payment setup (QPay)
+
+Zochil payment rule: **Khan Bank transfer or QPay**. In the Zochil shop settings QPay is **not connected**
+(`has_qpay: false`) and online card checkout is off. erxes 3.0 has a QPay payment kind
+(`backend/plugins/payment_api/src/constants.ts`).
+
+1. Get CASESHOP's QPay merchant credentials (`client_id`, `client_secret`, `invoice_code`). If the shop has no QPay
+   merchant, apply at qpay.mn. Owner: Terbish / CASESHOP.
+2. **Settings → Payments → Add → QPay**: enter them. **Settings → Payments → (QPay) → Test**: a 100₮ invoice.
+3. **Sales → Pipelines → «Вэбсайт» → Settings → Payments**: select QPay.
+4. Khan Bank transfer is not an erxes payment kind: staff confirm it by hand. Get the account number and holder name
+   (not on Zochil or Facebook). The site does not show an account number; it tells the customer the account is sent
+   with the order confirmation and to write the order number (`CS-YYMMDD-XXXX`) as the transfer note.
+
+Website (done): checkout offers **QPay** and **Хаан банк шилжүүлэг**, validated on the server (anything else is
+rejected). The browser's prices are ignored; the server prices every line from the catalog.
