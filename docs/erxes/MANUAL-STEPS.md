@@ -104,3 +104,44 @@ server; the order message carries it.
 2. **Sales → Boards → «Онлайн захиалга» → pipeline «Вэбсайт»**, stages: Шинэ захиалга → Загвар, үлдэгдэл шалгасан →
    Төлбөр хүлээгдэж буй → Төлбөр баталгаажсан → Хүргэлтэд гарсан / Авахад бэлэн → Хүргэгдсэн, plus «Цуцлагдсан».
 3. **Frontline → Forms → (order form) → Settings**: create a sales card in «Шинэ захиалга» for every submission.
+
+## 1.5 Test order from cart to receipt
+
+**Verified on a local production build:** `npm run test:order -- http://localhost:3143` passes **27 checks**: empty
+cart, unknown product, a case without its phone model chosen, a phone model the case does not list, a sold-out variant,
+a sold-out product, below the 10,000₮ minimum, city delivery under 20,000₮, pick-up under 20,000₮ (no fee), city
+25,000₮ + 5,000₮, free from 30,000₮, countryside (null fee), address required, QPay and Khan Bank accepted, StorePay
+and unknown payment rejected, unknown delivery, company registry rejected and accepted, phone (incl. +976), email,
+quantity over 10, the browser's price ignored, honeypot. Without erxes the order returns `503 not_configured` and the
+checkout shows the phone number, the reference (`CS-YYMMDD-XXXX`) and the total.
+
+Steps for a real test order:
+
+1. **Frontline → Forms → Create** «Вэбсайт захиалга» with fields Нэр, Утас, Имэйл, Захиалга. Copy the form id and
+   the field ids.
+2. In Vercel set `ERXES_API_URL`, `ERXES_ORDER_FORM_ID`, `ERXES_ORDER_FIELD_IDS`, then redeploy.
+3. Run `npm run test:order -- https://caseshop-web.vercel.app --send`. Expect 2 × 10,000₮ + 5,000₮ = 25,000₮ goods +
+   5,000₮ city delivery = **30,000₮**.
+4. In erxes: find the submission and its card → check the phone model → send the QPay invoice and pay it → issue the
+   eBarimt → move the card to «Хүргэгдсэн» → void the test order.
+
+---
+
+## Open questions for CASESHOP
+
+1. **Delivery thresholds**: Zochil says four things: minimum order 10,000₮, the rule «20,000₮-өөс дээш хүргэлттэй»,
+   the FAQ «15,000₮-өөс дээш», and the delivery option free from 30,000₮. The site uses 10k minimum / delivery from
+   20k / 5,000₮ / free from 30k. Which is right?
+2. **Pick-up**: not a Zochil delivery option, but the shop is at Sunday Plaza 1042. Offered online at 0₮; keep it?
+3. **Khan Bank account** number and holder for transfers.
+4. **QPay merchant**: QPay is not connected on Zochil (`has_qpay: false`). Is there a merchant?
+5. **Countryside**: bus fee by phone. Is there a fixed fee or a minimum?
+6. **20₮ and 30₮ products** (Pooh key case, Redmi Pad SE 8.7 case): real price?
+7. **19 products without a phone model** category: which phones do they fit?
+8. **Model names** on Zochil are inconsistent («18 ProMax», «Pro Max», «модель», «Хэмжээ»); the site normalises them.
+   Clean them in erxes?
+9. **TIN / PosAPI** for eBarimt.
+10. **Per-variant stock**: only 8 products have it. Track colour / model stock in erxes?
+11. **Wholesale** («бөөний»): the site says to call. Separate wholesale prices in erxes?
+12. **Email** penny_org@yahoo.com (from Zochil): still in use?
+13. **711 vs 709**: the two excluded products above.
